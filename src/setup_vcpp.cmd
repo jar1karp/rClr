@@ -6,6 +6,7 @@ set VSCOMNTOOLS=%VS150COMNTOOLS%
 REM for instance C:\bin\VS2012\Common7\Tools\
 
 set VSDEVENV="%VSCOMNTOOLS%..\..\VC\vcvarsall.bat"
+@if not exist %VSDEVENV% set VSDEVENV="%VSCOMNTOOLS%\VsDevCmd.bat"
 @if not exist %VSDEVENV% goto error_no_vcvarsall
 @call %VSDEVENV%
 @goto end
