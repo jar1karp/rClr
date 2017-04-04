@@ -112,8 +112,13 @@ then
 	echo "note: Found the flag IGNORE_VISUALSTUDIO. Build will be made with gcc, Mono and xbuild"
 fi
 
-VS_COMNTOOLS=${VS120COMNTOOLS}
+VS_COMNTOOLS=${VS150COMNTOOLS}
 # echo "$VS_COMNTOOLS"
+if [ "$VS_COMNTOOLS" = "" ]
+then
+	VS_COMNTOOLS=${VS120COMNTOOLS}
+fi
+
 if [ "$VS_COMNTOOLS" = "" ]
 then
 	VS_COMNTOOLS=${VS110COMNTOOLS}
@@ -122,7 +127,7 @@ fi
 if [ "$VS_COMNTOOLS" = "" ]
 then
 	USE_GCC=1
-	echo "note: No VS120COMNTOOLS or VS110COMNTOOLS environment variable. Build will be made with gcc, Mono and xbuild"
+	echo "note: No VS150COMNTOOLS, VS120COMNTOOLS or VS110COMNTOOLS environment variable. Build will be made with gcc, Mono and xbuild"
 fi
 
 # echo "Passed detection of VS_COMNTOOLS"
